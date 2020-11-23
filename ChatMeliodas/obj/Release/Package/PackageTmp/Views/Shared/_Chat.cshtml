@@ -1,0 +1,18 @@
+﻿@Styles.Render("~/Content/jquery.ui.chatbox.css")
+<div id="chat_widnow">
+    <div id="chat_title_bar">
+        <span><strong>Online Users</strong></span>
+    </div>
+    <div id="chat_box" style="display: none;overflow-y:auto;">
+    </div>
+</div>
+<div id="chat_div"></div>
+<input id="hdId" type="hidden" />
+<input id="hdUserName" type="hidden" />
+<input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session["userName"]" />
+<input type="hidden" id="hdnSessionId" data-value="@Request.RequestContext.HttpContext.Session["userId"]" />
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/chat_manager.js")
+@Scripts.Render("~/Scripts/jquery.signalR-2.4.1.min.js")
+@Scripts.Render("~/signalr/hubs")

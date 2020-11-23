@@ -1,0 +1,44 @@
+﻿@model ChatMeliodas.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div id="login-tab">
+    @using (@Html.BeginForm("Autorize", "Login", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.UserName)</td>
+                <td>@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "UserName" } })</td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Password)</td>
+                <td>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password" } })</td>
+                <td>@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label style="color: red"> @Html.DisplayFor(model => model.LoginError)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                    <input type="reset" value="Clear" />
+
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
